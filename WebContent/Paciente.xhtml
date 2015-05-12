@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Paciente</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h1>Paciente</h1>
+
+		<h:messages />
+		<h:panelGrid columns="2">
+
+			<h:outputLabel value="Nome:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.nome_paciente}" />
+			
+			<h:outputLabel value="Convênio:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.convenio_id}" />
+
+			<h:outputLabel value="CPF:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.cpf}" />
+			
+			<h:outputLabel value="RG:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.rg}" />
+			
+			<h:outputLabel value="Data Nascimento:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.dataNascimento}" />
+			
+			<h:outputLabel value="Cidade:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.Cidade}" />
+			
+			<h:outputLabel value="CEP:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.cep}" />
+			
+			<h:outputLabel value="Endereço:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.endereco}" />
+			
+			<h:outputLabel value="Bairro:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.bairro}" />
+			
+			<h:outputLabel value="Estado:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.estado}" />
+			
+			<h:outputLabel value="Complemento:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.complemento}" />
+			
+			<h:outputLabel value="Celular:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.celular}" />
+			
+			<h:outputLabel value="Email:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.email}" />
+			
+			<h:outputLabel value="Profissão:" />
+			<h:inputText value="#{pacienteManagedBean.paciente.profissao}" />
+
+			<h:outputLabel />
+			<h:commandButton
+				action="#{pacienteManagedBean.salvar(pacienteManagedBean.paciente)}"
+				value="Salvar" />
+
+		</h:panelGrid>
+	</h:form>
+
+	<br />
+
+	<h:form>
+		<h:inputText value="#{pacienteManagedBean.paciente.id}" id="id" />
+		<h:commandButton value="Consultar"
+			action="#{pacienteManagedBean.consultar}" />
+
+		<h:commandButton value="Todos"
+			action="#{pacienteManagedBean.consultarTodos()}" />
+
+		<br />
+		<br />
+
+		<h:dataTable id="tabela" value="#{pacienteManagedBean.pacientes}"
+			var="item" border="1">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{item.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{item.nome_paciente}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Convênio" />
+				</f:facet>
+				<h:outputText value="#{item.convenio_id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CPF" />
+				</f:facet>
+				<h:outputText value="#{item.cpf}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="RG" />
+				</f:facet>
+				<h:outputText value="#{item.rg}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Data Nascimento" />
+				</f:facet>
+				<h:outputText value="#{item.dataNascimento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Endereço" />
+				</f:facet>
+				<h:outputText value="#{item.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cidade" />
+				</f:facet>
+				<h:outputText value="#{item.cidade}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CEP" />
+				</f:facet>
+				<h:outputText value="#{item.nome_paciente}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Endereço" />
+				</f:facet>
+				<h:outputText value="#{item.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Bairro" />
+				</f:facet>
+				<h:outputText value="#{item.bairro}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Estado" />
+				</f:facet>
+				<h:outputText value="#{item.estado}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Complemto" />
+				</f:facet>
+				<h:outputText value="#{item.complemento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Celular" />
+				</f:facet>
+				<h:outputText value="#{item.celular}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Email" />
+				</f:facet>
+				<h:outputText value="#{item.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Profissão" />
+				</f:facet>
+				<h:outputText value="#{item.profissao}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{pacienteManagedBean.remove(item)}"
+					value="Remover">
+					<f:ajax render="@form" />
+				</h:commandLink>
+			</h:column>
+
+			<h:column>
+				<h:link outcome="Editar" value="Alterar">
+					<f:param name="id" value="#{item.id}" />
+				</h:link>
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

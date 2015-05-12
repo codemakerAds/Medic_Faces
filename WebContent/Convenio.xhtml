@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Convênio</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<h1>Convênio</h1>
+
+		<h:messages />
+		<h:panelGrid columns="2">
+
+			<h:outputLabel value="Nome Fantasia:" />
+			<h:inputText value="#{convenioManagedBean.convenio.nome_fantasia}" />
+			
+				<h:outputLabel value="Razão Social:" />
+			<h:inputText value="#{convenioManagedBean.convenio.razao_social}" />
+			
+				<h:outputLabel value="CNPJ:" />
+			<h:inputText value="#{convenioManagedBean.convenio.cnpj}" />
+			
+				<h:outputLabel value="Inscrição Estadual:" />
+			<h:inputText value="#{convenioManagedBean.convenio.ie}" />
+			
+			<h:outputLabel value="Endereço:" />
+			<h:inputText value="#{convenioManagedBean.convenio.endereco}" />
+			
+				<h:outputLabel value="Cidade:" />
+			<h:inputText value="#{convenioManagedBean.convenio.cidade}" />
+			
+			<h:outputLabel value="Email:" />
+			<h:inputText value="#{convenioManagedBean.convenio.email}" />
+			
+			<h:outputLabel value="Telefone:" />
+			<h:inputText value="#{convenioManagedBean.convenio.telefone}" />
+			
+			
+			<h:outputLabel />
+			<h:commandButton
+				action="#{convenioManagedBean.salvar(convenioManagedBean.convenio)}"
+				value="Salvar" />
+
+		</h:panelGrid>
+	</h:form>
+
+	<br />
+
+	<h:form>
+		<h:inputText value="#{convenioManagedBean.convenio.id}" id="id" />
+		<h:commandButton value="Consultar"
+			action="#{convenioManagedBean.consultar}" />
+
+		<h:commandButton value="Todos"
+			action="#{convenioManagedBean.consultarTodos()}" />
+
+		<br />
+		<br />
+
+		<h:dataTable id="tabela" value="#{convenioManagedBean.convenios}"
+			var="item" border="1">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{item.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome Fantasia" />
+				</f:facet>
+				<h:outputText value="#{item.nome_fantasia}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Razão Social" />
+				</f:facet>
+				<h:outputText value="#{item.razao_social}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CNPJ" />
+				</f:facet>
+				<h:outputText value="#{item.cnpj}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Inscrição Estadual" />
+				</f:facet>
+				<h:outputText value="#{item.ie}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Endereço" />
+				</f:facet>
+				<h:outputText value="#{item.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cidade" />
+				</f:facet>
+				<h:outputText value="#{item.cidade}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Email" />
+				</f:facet>
+				<h:outputText value="#{item.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Telefone" />
+				</f:facet>
+				<h:outputText value="#{item.telefone}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{convenioManagedBean.remove(item)}"
+					value="Remover">
+					<f:ajax render="@form" />
+				</h:commandLink>
+			</h:column>
+
+			<h:column>
+				<h:link outcome="Editar" value="Alterar">
+					<f:param name="id" value="#{item.id}" />
+				</h:link>
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
